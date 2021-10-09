@@ -7,3 +7,4 @@
   - import_tasks: software/tmux.yml
   - import_tasks: software/vagrant.yml
   - import_tasks: software/terraform.yml
+  - import_tasks: software/vscode.yml

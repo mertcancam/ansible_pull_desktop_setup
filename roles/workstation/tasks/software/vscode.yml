@@ -1,0 +1,26 @@
+- name: vscode prerequisite
+  apt:
+    name:
+      - software-properties-common
+      - apt-transport-https
+      - wget
+		  
+- name: software | vscode | add repository key:
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: software | vscode | add repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    filename: vscode
+  register: vscode_repo
+
+- name: software | vscode | update sources (repo added or changed)
+  apt:
+    update_cache: yes
+  changed_when: False
+  when: vscode_repo.changed
+
+- name: software | vscode | install package
+  apt:
+    name: code
