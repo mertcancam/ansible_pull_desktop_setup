@@ -9,3 +9,11 @@
 - name: Start guake during system startup
   shell:
     "cp /usr/share/applications/guake.desktop /etc/xdg/autostart/"
+
+- name: Configure tmux
+  get_url:
+    url: https://gist.github.com/mertcancam/d972df122af85996194e54a51a2d262b/raw/c7a97200b9055441d3a585f8ec7f7c2384ebab1c/.tmux.conf
+    dest: /home/mert
+    mode: 664
+  shell: 
+    "tmux source-file home/mert/.tmux.conf"
