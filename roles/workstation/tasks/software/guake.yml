@@ -1,0 +1,17 @@
+- name: software | guake
+  apt:
+    name: guake
+
+- name: download my guake configurations
+  copy:
+    src: guake.cfg
+    dest: /tmp/guake.cfg
+    mode: 0644
+
+- name: import guake configurations
+  shell:
+    "guake --restore-preferences=/tmp/guake.cfg"
+
+- name: Start guake during system startup
+  shell:
+    "cp /usr/share/applications/guake.desktop /etc/xdg/autostart/"

@@ -1,0 +1,9 @@
+- include_vars: "Pop!_OS.yml"
+
+- block:
+  ## install software
+  - import_tasks: software/htop.yml
+  - import_tasks: software/guake.yml
+  - import_tasks: software/tmux.yml
+  - import_tasks: software/vagrant.yml
+  - import_tasks: software/terraform.yml
