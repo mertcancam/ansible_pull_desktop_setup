@@ -5,3 +5,7 @@
       - mc
       - tmux
       - guake
+
+- name: Start guake during system startup
+  shell:
+    "cp /usr/share/applications/guake.desktop /etc/xdg/autostart/"
