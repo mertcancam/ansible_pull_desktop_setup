@@ -1,11 +1,13 @@
+---
+
 - name: vscode prerequisite
-  apt:
+  apt:      
     name:
-      - software-properties-common
-      - apt-transport-https
-      - wget
-		  
-- name: software | vscode | add repository key:
+      - "software-properties-common"
+      - "apt-transport-https"
+      - "wget"
+ 
+- name: software | vscode | add repository key
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
 
@@ -17,8 +19,8 @@
 
 - name: software | vscode | update sources (repo added or changed)
   apt:
-    update_cache: yes
-  changed_when: False
+    update_cache: true
+  changed_when: false
   when: vscode_repo.changed
 
 - name: software | vscode | install package
