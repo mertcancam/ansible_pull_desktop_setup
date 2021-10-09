@@ -20,4 +20,4 @@
 - name: Reload tmux conf
   become_user: mert
   shell: 
-    "tmux source-file /home/mert/.tmux.conf"
+    "/usr/bin/tmux source-file /home/mert/.tmux.conf"
