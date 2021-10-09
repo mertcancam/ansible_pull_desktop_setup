@@ -14,8 +14,10 @@
   get_url:
     url: https://gist.github.com/mertcancam/d972df122af85996194e54a51a2d262b/raw/c7a97200b9055441d3a585f8ec7f7c2384ebab1c/.tmux.conf
     dest: /home/mert
+    owner: "{{ ansible_effective_user_id }}"
+    group: "{{ ansible_effective_group_id }}"
     mode: 664
 
 - name: Reload tmux conf
   shell: 
-    "tmux source-file home/mert/.tmux.conf"
+    "tmux source-file /home/mert/.tmux.conf"
