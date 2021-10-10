@@ -1,0 +1,5 @@
+---
+
+- name: software | yamllint
+  apt:
+    name: yamllint

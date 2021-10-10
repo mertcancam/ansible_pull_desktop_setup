@@ -1,4 +1,4 @@
-
+---
 # tasks to complete before running roles
 - hosts: all
   tags: always
@@ -7,10 +7,9 @@
     - name: pre-run | update package cache
       tags: always
       apt: update_cache=yes
-      changed_when: False
-      
-# run roles
+      changed_when: false
 
+# run roles
 - hosts: workstation
   tags: workstation
   become: true
@@ -21,14 +20,14 @@
 - hosts: all
   become: true
   tasks:
-  - name: cleanup package cache
-    tags: always
-    apt:
-      autoclean: yes
-    changed_when: false
+    - name: cleanup package cache
+      tags: always
+      apt:
+        autoclean: true
+      changed_when: false
 
-  - name: autoremove orphan packages
-    tags: always
-    apt:
-      autoremove: yes
-      purge: yes
+    - name: autoremove orphan packages
+      tags: always
+      apt:
+        autoremove: true
+        purge: true

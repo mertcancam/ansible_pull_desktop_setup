@@ -1,12 +1,12 @@
 ---
 
 - name: vscode prerequisite
-  apt:      
+  apt:
     name:
       - "software-properties-common"
       - "apt-transport-https"
       - "wget"
- 
+
 - name: software | vscode | add repository key
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc

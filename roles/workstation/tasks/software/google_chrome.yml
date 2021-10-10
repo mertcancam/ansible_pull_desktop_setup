@@ -1,3 +1,5 @@
+---
+
 - name: software | google-chrome | add repository key
   apt_key:
     url: https://dl-ssl.google.com/linux/linux_signing_key.pub
@@ -10,7 +12,7 @@
 
 - name: software | google-chrome | update sources (repo added or changed)
   apt:
-    update_cache: yes
+    update_cache: true
   changed_when: false
   when: chrome_repo.changed
 
