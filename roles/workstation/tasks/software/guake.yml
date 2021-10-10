@@ -13,5 +13,7 @@
   notify: import_guake_conf
 
 - name: Start guake during system startup
-  shell:
-    "cp /usr/share/applications/guake.desktop /etc/xdg/autostart/"
+  copy:
+    src: /usr/share/applications/guake.desktop
+    dest: /etc/xdg/autostart/
+    mode: 0644
