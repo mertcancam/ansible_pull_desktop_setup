@@ -1,0 +1,5 @@
+---
+
+- name: import_guake_conf
+  shell:
+    "guake --restore-preferences=/home/mert/.config/guake.cfg"

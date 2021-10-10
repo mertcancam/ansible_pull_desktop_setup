@@ -5,14 +5,12 @@
     name: guake
 
 - name: download my guake configurations
+  become_user: mert
   copy:
     src: guake.cfg
-    dest: /tmp/guake.cfg
+    dest: /home/mert/.config/guake.cfg
     mode: 0644
-
-- name: import guake configurations
-  shell:
-    "guake --restore-preferences=/tmp/guake.cfg"
+  notify: import_guake_conf
 
 - name: Start guake during system startup
   shell:
